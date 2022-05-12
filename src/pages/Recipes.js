@@ -1,42 +1,78 @@
-import { createMemoryHistory } from "history"
-import { faSearch } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import PreviousSearches from "../components/PreviousSearches"
+import RecipeCard from "../components/RecipeCard"
 
-export default function Recipes() {
-    const searches = [
-        "pizza",
-        "burger",
-        "cookies",
-        "juice",
-        "biriyani",
-        "salad",
-        "ice cream",
-        "lassagna",
-        "pudding",
-        "soup"
-    ]
+export default function Recipes(){
+    const recipes = [
+        {
+            title: "Chicken Pan Pizza",
+            image: "/img/gallery/img_1.jpeg",
+            authorImg: "/img/top-chiefs/img_1.jpeg",
+        }, 
+        {
+            title: "Spaghetti and Meatballs",
+            image: "/img/gallery/img_4.jpg",
+            authorImg: "/img/top-chiefs/img_2.jpeg",
+        },
+        {
+            title: "American Cheese Burger",
+            image: "/img/gallery/img_5.jpeg",
+            authorImg: "/img/top-chiefs/img_3.jpeg",
+        },
+        {
+            title: "Mutton Biriyani",
+            image: "/img/gallery/img_6.jpeg",
+            authorImg: "/img/top-chiefs/img_5.jpeg",
+        },
+        {
+            title: "Japanese Sushi",
+            image: "/img/gallery/img_10.jpeg",
+            authorImg: "/img/top-chiefs/img_6.jpeg",
+        },
+        {
+            title: "Chicken Pan Pizza",
+            image: "/img/gallery/img_1.jpeg",
+            authorImg: "/img/top-chiefs/img_1.jpeg",
+        }, 
+        {
+            title: "Spaghetti and Meatballs",
+            image: "/img/gallery/img_4.jpeg",
+            authorImg: "/img/top-chiefs/img_2.jpeg",
+        },
+        {
+            title: "American Cheese Burger",
+            image: "/img/gallery/img_5.jprg",
+            authorImg: "/img/top-chiefs/img_3.jpeg",
+        },
+        {
+            title: "Mutton Biriyani",
+            image: "/img/gallery/img_6.jpeg",
+            authorImg: "/img/top-chiefs/img_5.jpeg",
+        },
+        {
+            title: "Japanese Sushi",
+            image: "/img/gallery/img_10.jpeg",
+            authorImg: "/img/top-chiefs/img_6.jpeg",
+        },
+        {
+            title: "American Cheese Burger",
+            image: "/img/gallery/img_5.jpeg",
+            authorImg: "/img/top-chiefs/img_3.jpeg",
+        },
+        {
+            title: "Mutton Biriyani",
+            image: "/img/gallery/img_6.jpeg",
+            authorImg: "/img/top-chiefs/img_5.jpeg",
+        }
+    ].sort(() => Math.random() - 0.5)
+
     return (
-        <>
-            <div className="previous-searches section">
-                <h2>Previous Searches</h2>
-                <div className="previous-searches-container">
-                    { searches.map((search, index) => (
-                        <div
-                            style={{animationDelay: index * 0.1 + "s"}}
-                            className="search-item" 
-                            key={index}
-                        >
-                            {search}
-                        </div>
-                    ))}
-                </div>
-                <div className="search-box">
-                    <input type="text" placeholder="Search ..."/>
-                    <button className="btn">
-                        <FontAwesomeIcon icon={faSearch} />
-                    </button>
-                </div>
+        <div>
+            <PreviousSearches />
+            <div className="recipes-container">
+                {recipes.map((recipe, index) => (
+                    <RecipeCard key={index} recipe={recipe} />
+                ))}
             </div>
-        </>
+        </div>
     )
 }
